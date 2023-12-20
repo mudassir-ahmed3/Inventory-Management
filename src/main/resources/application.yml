@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true
+
+  security:
+    oauth2:
+        client:
+          registration:
+            google:
+              client-id: 828007683862-a7ls6o20c11cqctb6rh55q1veuqtc0pe.apps.googleusercontent.com
+              client-secret: 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
+              redirect-uri: http://localhost:3000
+              scope:
+                - openid
+                - profile
+                - email
+        resourceserver:
+          jwt:
+            jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+            issuer-uri: https://accounts.google.com
